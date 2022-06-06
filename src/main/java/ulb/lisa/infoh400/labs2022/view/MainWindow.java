@@ -661,7 +661,10 @@ public class MainWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         LOGGER.info("Check authentication");
+/*on va vérifier si on a déjà créé un utilisateur*/
         if( Authentication.hasUser() ){
+            /*on va voir dans la classe authentication*/
+            /*c'est une methode statque donc pas besoin d'instancier un objet*/
             MainWindow.login();
         }
         else{
