@@ -138,7 +138,7 @@ public class Patient implements Serializable {
         }
         return true;
     }
-
+/*va appeler le to string de la classe personne*/
     @Override
     public String toString() {
         return idperson.toString();
