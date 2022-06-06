@@ -141,6 +141,7 @@ public class MainWindow extends javax.swing.JFrame {
         listPatientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listPatientsButtonActionPerformed(evt);
+/*on appelle la fonction */
             }
         });
 
@@ -429,13 +430,13 @@ public class MainWindow extends javax.swing.JFrame {
     private void refreshPatientList(){
         List patients = patientCtrl.findPatientEntities();
         EntityListModel<Patient> model = new EntityListModel(patients);
-        
+/*qui va appeler patient entity dans le model, on ne se préoccupe pas de ce qu'est un patient, on utilise juste la methode tostring qui se trouve dans model */        
         itemsList.setModel(model);
     }
     
     private void listPatientsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listPatientsButtonActionPerformed
         refreshPatientList();
-        
+/*quand on appuie sur le bouton pour lister les patients on appelle refresh */        
         disableButtons();
         editPatientButton.setEnabled(true);
         deletePatientButton.setEnabled(true);
