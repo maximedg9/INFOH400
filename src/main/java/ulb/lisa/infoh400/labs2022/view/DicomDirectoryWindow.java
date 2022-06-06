@@ -154,8 +154,9 @@ qui va pouvoir être un pointeur vers le fichier qu'on a sélectionnée
 */            
             File selectedFile = fc.getSelectedFile();
 /*on a commencé à travailler avec attribute list mais cela mélangeait le conroller et la view,
-car methodes de pixelmed qui doivent être independante de la view*/
+car methodes de pixelmed qui doivent être independante de la view -> on les met dans service et on les appelle*/
             selectedDirectory = selectedFile.getParent();
+/*la partie ouverture du fichier DICOM se trouve dans DicomDirectoryService*/
             dds = new DicomDirectoryServices(selectedFile);
             dicomdirJTree.setModel(dds.getModel());
         }
