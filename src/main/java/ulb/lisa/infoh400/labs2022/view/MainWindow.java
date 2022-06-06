@@ -166,6 +166,7 @@ public class MainWindow extends javax.swing.JFrame {
         addPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPatientButtonActionPerformed(evt);
+      /*quand on veut ajouter un patient*/
             }
         });
 
@@ -398,6 +399,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void addPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientButtonActionPerformed
         AddPatientWindow patientAddPopup = new AddPatientWindow();
+   /*quand on ajoute patient on va avoir une fenêtre*/
+   /*on peut trouver cette fonction dans view patient*/
         patientAddPopup.setVisible(true);
     }//GEN-LAST:event_addPatientButtonActionPerformed
 
