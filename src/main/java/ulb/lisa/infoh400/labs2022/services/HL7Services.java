@@ -76,6 +76,8 @@ public class HL7Services {
 
         adt = new ADT_A01();
         try {
+           /*on préremplit le segment*/
+            /*ensuit on pourra simplement les récupérer et modifier ce qu'on veut mettre*/
             adt.initQuickstart("ADT", "A01", "D");
         } catch (HL7Exception | IOException ex) {
             LOGGER.error("Failed to create ADT_A01 message.", ex);
@@ -86,9 +88,11 @@ public class HL7Services {
         try {
             MSH msh = adt.getMSH();
             msh.getSendingApplication().getNamespaceID().setValue("HIS");
+            /*c'est le HIS qui envoit ce message, sending application*/
             msh.getSequenceNumber().setValue(String.valueOf(currentSequenceNumber));
             
             PID pid = adt.getPID();
+            /*on récupère les info dans le patient*/
             pid.getPatientName(0).getFamilyName().getSurname().setValue(patient.getIdperson().getFamilyname());
             pid.getPatientName(0).getGivenName().setValue(patient.getIdperson().getFirstname());
             pid.getPatientIdentifierList(0).getID().setValue(String.valueOf(patient.getIdpatient()));
