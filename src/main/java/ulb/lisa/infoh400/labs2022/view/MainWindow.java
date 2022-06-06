@@ -31,8 +31,10 @@ import ulb.lisa.infoh400.labs2022.services.HL7Services;
  * @author Adrien Foucart
  */
 public class MainWindow extends javax.swing.JFrame {
-    
+    /*on voit les attributs de classe liés à ce persistence  */
+    /*"je vais utiliser une connexion à la base de donnée telle qu'elle est définie dans persistence unit infoh400"  */
     private final EntityManagerFactory emfac = Persistence.createEntityManagerFactory("infoh400_PU");
+    /*on a pu générer les controlleurs avec persistence  */
     private final PatientJpaController patientCtrl = new PatientJpaController(emfac);
     private final DoctorJpaController doctorCtrl = new DoctorJpaController(emfac);
     private final ImageJpaController imageCtrl = new ImageJpaController(emfac);
@@ -132,7 +134,9 @@ public class MainWindow extends javax.swing.JFrame {
         ImageTextLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ImageTextLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ImageTextLabel.setText("Images");
-
+/*on va pouvoir lister les patients  */
+/*comme on travaille avec une interface graphique on aura des listeners  */
+/*permet que des methodes soient appelées dès qu'une opération est effectuée sur cet objet  */
         listPatientsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/noun_List_103471.png"))); // NOI18N
         listPatientsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
