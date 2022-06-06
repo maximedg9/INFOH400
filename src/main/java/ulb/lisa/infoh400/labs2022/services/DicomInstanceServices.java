@@ -46,6 +46,7 @@ public class DicomInstanceServices {
         try {
             SourceImage dicomImg = new SourceImage(instanceFile.toString());
             return dicomImg.getBufferedImage();
+/*permet de faire la conversion d'image de pixelmed vers java*/
         } catch (IOException | DicomException ex) {
             LOGGER.error("Couldn't get Image from instance file.", ex);
         }
