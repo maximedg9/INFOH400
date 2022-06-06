@@ -31,6 +31,8 @@ public class Authentication {
     }
     
     public static void createUser(String username, char[] password){
+        /*tableau de char et pas string car string peut 
+        ne pas être supprimé directement de la mémoire RAM par le garbage collector*/
         try {
             String saltedHash = PasswordFactory.getSaltedHash(password);
             
