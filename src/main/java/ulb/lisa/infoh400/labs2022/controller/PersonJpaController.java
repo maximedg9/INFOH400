@@ -254,7 +254,9 @@ public class PersonJpaController implements Serializable {
             em.close();
         }
     }
-    
+    /*On utilise la methode find duplicate pour verifier 
+    si la personne qu’on a reçu existe déjà si duplicate est nul
+    on sait que la personne existe pas et on peut créer le patient correspondant.*/
     public Person findDuplicate(String firstName, String familyName, Date dateofbirth){
         EntityManager em = getEntityManager();
         List<Person> results = em.createNamedQuery("Person.findDuplicate")
