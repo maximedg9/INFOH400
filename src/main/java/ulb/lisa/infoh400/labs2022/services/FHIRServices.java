@@ -58,6 +58,10 @@ public class FHIRServices {
     }
     
     public ArrayList<Patient> searchPatient(String familyName, String fhirBase){
+        /*on veut une methode pour chercher des patients 
+        a laquelle on va pouvoir donner un host et un famiyname*/
+        /*on veut en retour une liste patient qui correspond a notre modele patient 
+        pour pouvoir la stocker dans notre base de donnée*/
         FhirContext ctx = FhirContext.forR4();
         IGenericClient client = ctx.newRestfulGenericClient(fhirBase);
         
