@@ -21,8 +21,8 @@ import ulb.lisa.infoh400.labs2022.services.DicomInstanceServices;
 public class DicomDirectoryWindow extends javax.swing.JFrame {
     
     private static final Logger LOGGER = LogManager.getLogger(DicomDirectoryWindow.class.getName());
-    private final String defaultDirectory = "e:/pCloud/ULB/TPs/INFOH400/Data/DICOMDIR";
-    
+    private final String defaultDirectory = "e:/pCloud/ULB/TPs/INFOH400/Data/DICOMDIR";    
+/*directory par défaut est le fichier dicomdir qui nous intéresse*/    
     private String selectedDirectory = null;
     private DicomDirectoryServices dds = null;
     //private DicomDirectory dicomDirectory = null;
@@ -142,7 +142,8 @@ public class DicomDirectoryWindow extends javax.swing.JFrame {
 
     private void openDicomdirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openDicomdirButtonActionPerformed
         JFileChooser fc = new JFileChooser(defaultDirectory);
-        
+/*On a du code pour recuper un fichier sur le disque on va utiliser la classe JFichooser de swing qui va créer une fenêtre popup 
+dans laquelle on peut sélectionner un fichier. On peut lui donner un directory par défaut*/        
         if( fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION ){
             File selectedFile = fc.getSelectedFile();
             selectedDirectory = selectedFile.getParent();
