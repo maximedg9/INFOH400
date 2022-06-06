@@ -173,7 +173,10 @@ public class AddPatientWindow extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
-
+    
+    
+/*on remplit les champs de la fenêtre pur créer le patient et ensuite quand on save ca appelle le controlleur*/
+/*on crée la personne et ensuite on la définit patient sinon on n'arrive pas à faire le lien entre le patient et la personne*/
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         updatePatient();
 
@@ -193,6 +196,7 @@ public class AddPatientWindow extends javax.swing.JFrame {
             personCtrl.edit(patient.getIdperson());
             patientCtrl.edit(patient);
             LOGGER.debug("Edited patient (id = %d)".formatted(patient.getIdpatient()));
+/*on verifier les exceptions*/
         } catch (NonexistentEntityException | IllegalOrphanException ex) {
             LOGGER.error("Couldn't edit patient", ex);
         } catch (Exception ex){
