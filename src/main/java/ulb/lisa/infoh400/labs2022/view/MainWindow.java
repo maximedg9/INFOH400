@@ -581,6 +581,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_startSCPButtonActionPerformed
 
     private void startHL7ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startHL7ButtonActionPerformed
+        /*on lance ici l'ecoute HL7*/
         if( hl7s == null ){
             hl7s = new HL7Services();
         }
