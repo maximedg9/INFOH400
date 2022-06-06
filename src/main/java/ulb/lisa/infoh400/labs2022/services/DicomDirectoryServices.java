@@ -37,6 +37,10 @@ public class DicomDirectoryServices {
     
     private void readDicomDirectory(File f){
         try {
+/*read dicom directory 
+qui va faire partie attribute list, create 
+et qui va renvoyer avec le get model. 
+*/
             AttributeList list = new AttributeList();
             list.read(new DicomInputStream(f));
             ddr = new DicomDirectory(list);
@@ -53,6 +57,7 @@ public class DicomDirectoryServices {
     
     public void setSelectedRecord(Object o){
         selectedRecord = (DicomDirectoryRecord) o;
+    /*c'est la qu'on dit que l'objet sélectionné est bien de type DicomDirectoryRecord*/
     }
     
     public String getSelectedRecordAttributes(){
