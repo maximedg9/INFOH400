@@ -73,6 +73,7 @@ public class AddDoctorWindow extends javax.swing.JFrame {
         addPersonPanel = new ulb.lisa.infoh400.labs2022.view.AddPersonPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+   /*un docteur c'est comme un patient mais il aura numero inami et une specialisation*/
         inamiTextField = new javax.swing.JTextField();
         specialtyTextField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
