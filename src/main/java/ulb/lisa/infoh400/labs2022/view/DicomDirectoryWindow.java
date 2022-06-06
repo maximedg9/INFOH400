@@ -145,7 +145,16 @@ public class DicomDirectoryWindow extends javax.swing.JFrame {
 /*On a du code pour recuper un fichier sur le disque on va utiliser la classe JFichooser de swing qui va créer une fenêtre popup 
 dans laquelle on peut sélectionner un fichier. On peut lui donner un directory par défaut*/        
         if( fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION ){
+/*Quand on appelle show open dialogue, 
+cela affiche popup ou on va pouvoir sélectionner le fichier
+si on clique sur ok(APPROVE_OPTION), 
+showOpenDialogue va renvoyer approuve option. 
+Et on va pouvoir recuperer un objet de type file 
+qui va pouvoir être un pointeur vers le fichier qu'on a sélectionnée
+*/            
             File selectedFile = fc.getSelectedFile();
+/*on a commencé à travailler avec attribute list mais cela mélangeait le conroller et la view,
+car methodes de pixelmed qui doivent être independante de la view*/
             selectedDirectory = selectedFile.getParent();
             dds = new DicomDirectoryServices(selectedFile);
             dicomdirJTree.setModel(dds.getModel());
@@ -154,6 +163,11 @@ dans laquelle on peut sélectionner un fichier. On peut lui donner un directory 
 
     private void dicomdirJTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_dicomdirJTreeValueChanged
         if( dds != null ){
+/*Le « value change » 
+est un évènement qui se déclenche 
+quand on selectionne un nouvel élément dans le tree*/  
+
+/*on doit récupérer les valeurs des tags dans attribute list*/
             dds.setSelectedRecord(dicomdirJTree.getLastSelectedPathComponent());
             dicomAttributesTextArea.setText(dds.getSelectedRecordAttributes());
         }
@@ -166,6 +180,8 @@ dans laquelle on peut sélectionner un fichier. On peut lui donner un directory 
 
     private void saveImageToDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveImageToDatabaseButtonActionPerformed
         if( dds.selectedRecordIsImage() ){
+  /*Si on clique sur dimcomdirectoryrecord il fait savoir 
+  si c'est une image dans ce cas il faut aller recuperer image correspondante. */
             DicomInstanceServices dis = new DicomInstanceServices(dds.getSelectedRecordFile(selectedDirectory));
             if( dis.sendInstanceToSCP() ){
                 if( dis.saveInstanceToDatabase() ){
