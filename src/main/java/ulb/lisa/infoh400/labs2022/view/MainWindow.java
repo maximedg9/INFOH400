@@ -415,6 +415,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
         DicomDirectoryWindow ddirWindow = new DicomDirectoryWindow();
+    /*on ouvre popup dans mainwindow pour la fenetre dicom, suite de la fenetre dans la classe dicom view*/
         ddirWindow.setVisible(true);
     }//GEN-LAST:event_addImageButtonActionPerformed
     
