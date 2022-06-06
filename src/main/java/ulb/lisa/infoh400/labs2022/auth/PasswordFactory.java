@@ -34,6 +34,8 @@ public class PasswordFactory {
     public static String getSaltedHash(char[] password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(SALTLEN);
         // store the salt with the password
+        /*On va créer ce hash, on va concatener d'une part le salt en lui mm,
+        ajouter caractère de separation et puis ensuite un hash avec le salt*/
         return Base64.encodeBase64String(salt) + "$" + hash(password, salt);        
     }
 
@@ -67,6 +69,7 @@ public class PasswordFactory {
         if( password == null || password.length == 0)
             throw new IllegalArgumentException("Empty passwords are not supported.");
         SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        /*on utilise methode de cryptographie de java 'generate secret"*/
         SecretKey key = f.generateSecret(new PBEKeySpec(
             password, salt, ITERATIONS, DESIREDKEYLEN)
         );
