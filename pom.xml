@@ -46,6 +46,7 @@
             <version>20210920</version>
         </dependency>
         <dependency>
+            <! -- on a bien rajouté les dépendances vers hapi-->
             <groupId>ca.uhn.hapi</groupId>
             <artifactId>hapi-base</artifactId>
             <version>2.3</version>
