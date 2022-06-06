@@ -43,6 +43,7 @@ public class DicomDirectoryServices {
         } catch (IOException | DicomException ex) {
             LOGGER.error("Couldn't read DICOM Directory", ex);
             ddr = null;
+            /*si c'est pas formaté au standard DICOM cela renvoit exception*/
         }
     }
 
@@ -63,6 +64,11 @@ public class DicomDirectoryServices {
         String out = "";
 
         for( AttributeTag tag: al.keySet() ){
+/*on peut recuperer attribut list = Dictionnaire pour faire lien entre
+tag dicom <-> et les valeurs qu'ils contiennent. */
+/*    On peut faire une boucle qui va recuperer toutes les clefs du dictionnaires
+    qui sont tous les tag
+*/
             out += tag + " : " + al.get(tag).getDelimitedStringValuesOrEmptyString() + "\n";
         }
 
