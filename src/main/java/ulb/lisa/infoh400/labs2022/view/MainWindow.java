@@ -553,7 +553,7 @@ public class MainWindow extends javax.swing.JFrame {
         
         EntityListModel model = (EntityListModel) itemsList.getModel();
         Object selected = model.getList().get(itemsList.getSelectedIndex());
-        
+ /*on a le double clique sur images*/      
         if(evt.getClickCount() == 2 && selected.getClass().getSimpleName().equals("Image")){
             DicomInstanceWindow imagePopup = new DicomInstanceWindow((Image) selected);
             imagePopup.setVisible(true);
@@ -561,6 +561,8 @@ public class MainWindow extends javax.swing.JFrame {
         else if(evt.getClickCount() == 2 && selected.getClass().getSimpleName().equals("Patient")){
             HL7SendWindow hl7Popup = new HL7SendWindow((Patient) selected);
             hl7Popup.setVisible(true);
+/*on a le double clique sur patient pour HL7*/
+ /*toujours bien vérifier que XAMPP tourne sinon on aura pas les patients dans la liste*/
         }
     }//GEN-LAST:event_itemsListMouseClicked
 
